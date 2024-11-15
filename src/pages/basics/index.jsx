@@ -4,16 +4,24 @@ import './style.css'
 const BasicsPage = () => {
   return (
     <main className="basics-page">
-      <div className="info-content">
-        <h1>Basics Page</h1>
-        <p>
-          Covering the basics of React JS. Below are some of the points covered in this page:
-        </p>
-      </div>
+      <section class="hero is-primary mb-5">
+        <div class="hero-body">
+          <h1 className='title'>Basics Page</h1>
+          <p className='paragraph'>
+            Covering the basics of React JS. Below are some of the points covered in this page:
 
-      <section className='props-section'>
-        <h3>Props Section</h3>
+            <ul style={{ marginLeft: '10px', marginTop: '10px' }}>
+              <ol>Manipulating html elements</ol>
+              <ol>Using props in html elements</ol>
+              <ol>Passing Props</ol>
+              <ol>Using external components</ol>
+              <ol>Local Images</ol>
+            </ul>
+          </p>
+        </div>
+      </section>
 
+      <section className='props-section mx-6'>
         <div className="cards">
           <ProfileCard title={"Alexa"} handle="@alexa99" />
           <ProfileCard title={"Cortana"} handle="@Cortana32" />

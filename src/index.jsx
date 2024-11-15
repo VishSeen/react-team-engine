@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import NavBar from "./components/nav-bar";
 import BasicsPage from "./pages/basics";
 import './style.css';
+import 'bulma/css/bulma.css'
 
 const rootElement = document.getElementById('root');
 const root = ReactDOM.createRoot(rootElement);

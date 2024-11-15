@@ -1,7 +1,4 @@
 .profile-card {
-  background-color: antiquewhite;
+  height: 100%;
   border-radius: 5px;
-  width: 30%;
-  height: 10rem;
-  text-align: center;
 }
