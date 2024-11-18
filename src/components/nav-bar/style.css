@@ -1,11 +1,11 @@
-.nav-bar {
+/* .nav-bar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   background-color: black;
   color: #fff;
-}
+} */
 
 .nav-bar ul {
   display: flex;
