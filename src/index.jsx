@@ -5,7 +5,7 @@ import BasicsPage from "./pages/basics";
 import StatesPage from "./pages/states";
 
 import 'bulma/css/bulma.css'
-import {PAGES} from './constants/constants.ts';
+import {PAGES} from './constants/constants';
 import './styles/globals.css';
 import {
   createBrowserRouter,
@@ -54,7 +54,7 @@ const App = () => {
     <div>
       <NavBar navItems={navItems} />
 
-      <RouterProvider router={router} />
+      <RouterProvider router={router}/>
     </div>
   )
 }
