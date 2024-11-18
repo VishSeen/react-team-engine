@@ -1,23 +1,25 @@
-import './style.css';
+import "./style.css";
 
-const NavBar = ({
-  navItems
-}) => {
+const NavBar = ({ navItems }) => {
   return (
-    <nav className="nav-bar" role="navigation" aria-label="main navigation">
-      <ul className="navbar-menu" style={{
-        width: '100%'
-      }}>
-        {navItems.map(item => {
-          return (
-            <li key={item.id} className='nav-item'>
-              <a href={item.href}>{item.name}</a>
-            </li>
-          )
-        })}
-      </ul>
-    </nav>
-  )
-}
+    <>
+      <nav id="nav-bar-main" class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-menu">
+          <div class="navbar-start">
+            <div className="navbar-item">
+              {navItems.map((item) => {
+                return (
+                  <a href={item.href} className="nav-link">
+                    {item.name}
+                  </a>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </nav>
+    </>
+  );
+};
 
 export default NavBar;
