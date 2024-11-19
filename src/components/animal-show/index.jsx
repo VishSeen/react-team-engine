@@ -19,7 +19,7 @@ const AnimalShow = ({ type }) => {
   return (
     <div className="animal-counter" style={{ display: "flex" }}>
       <div>
-        <p>Types of Animals : {type} </p>
+        <p>{type} </p>
         <img style={{ width: "110px" }} src={svgMap[type]} alt="animal" />
       </div>
     </div>

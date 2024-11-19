@@ -54,14 +54,21 @@ const StatesPage = () => {
         </p>
         <br />
 
-        <div className="animals" style={{ display: "flex" }}>
-          {animals.map((item, i) => {
-            return (
-              <div>
-                <AnimalShow type={item} key={i} />
-              </div>
-            );
-          })}
+        <div className="animals">
+          <p>Types of Animals :</p>
+          <br />
+          <div
+            className="content"
+            style={{ display: "flex", gap: "30px", flexWrap: "wrap" }}
+          >
+            {animals.map((item, i) => {
+              return (
+                <div>
+                  <AnimalShow type={item} key={i} />
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         <button class="button" onClick={handleRandomClick}>

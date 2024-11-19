@@ -1,18 +1,16 @@
 import React from "react";
-import ReactDOM from 'react-dom/client';
+import ReactDOM from "react-dom/client";
 import NavBar from "./components/nav-bar";
 import BasicsPage from "./pages/basics";
 import StatesPage from "./pages/states";
 
-import 'bulma/css/bulma.css'
-import {PAGES} from './constants/constants';
-import './styles/globals.css';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import "bulma/css/bulma.css";
+import { PAGES } from "./constants/constants";
+import "./styles/globals.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ApiPage from "./pages/api";
 
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById("root");
 const root = ReactDOM.createRoot(rootElement);
 
 const App = () => {
@@ -20,43 +18,52 @@ const App = () => {
     {
       id: 1,
       name: "Basics",
-      href: PAGES.BASICS
+      href: PAGES.BASICS,
     },
     {
       id: 2,
       name: "States",
-      href: PAGES.STATES
+      href: PAGES.STATES,
     },
     {
       id: 3,
-      name: "Hooks",
-      href: PAGES.HOOKS
+      name: "Api",
+      href: PAGES.API,
     },
     {
       id: 4,
+      name: "Hooks",
+      href: PAGES.HOOKS,
+    },
+    {
+      id: 5,
       name: "Legacy React",
-      href: PAGES.LEGACY
-    }
-  ]
+      href: PAGES.LEGACY,
+    },
+  ];
 
   const router = createBrowserRouter([
     {
       path: PAGES.BASICS,
-      element: <BasicsPage />
+      element: <BasicsPage />,
     },
     {
       path: PAGES.STATES,
-      element: <StatesPage />
-    }
+      element: <StatesPage />,
+    },
+    {
+      path: PAGES.API,
+      element: <ApiPage />,
+    },
   ]);
 
   return (
     <div>
       <NavBar navItems={navItems} />
 
-      <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </div>
-  )
-}
+  );
+};
 
 root.render(<App />);
