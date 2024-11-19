@@ -3,11 +3,13 @@ import { useState } from "react";
 const SearchBar = ({ handleSearch }) => {
   const [search, setSearch] = useState();
 
+  // handling the click event / 'Enter'/ keypress
   const handleSubmit = (event) => {
     event.preventDefault();
     handleSearch(search);
   };
 
+  // updates the state 'search' using the onChange event
   const handleChange = (event) => {
     setSearch(event.target.value);
   };

@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import SearchBar from "../../components/search-bar";
 import "../../styles/globals.css";
 import "./style.css";
 import getImages from "../../services/api";
+import UnsplashCard from "../../components/unsplash-card";
 
 const ApiPage = () => {
   const [data, setData] = useState();
@@ -22,11 +23,18 @@ const ApiPage = () => {
       <section className="hero is-primary px-5">
         <div className="hero-body">
           <h1 className="title">Fetching API data</h1>
-          <p className="paragraph"></p>
+          <p className="paragraph">
+            Learn about data fetching in this page. fetch function using
+            async/await and how to retrieve data with an ApiKey. <br />
+            OnChange and onClick events has been covered as well as child to
+            parent state passing.
+          </p>
 
           <ul style={{ marginLeft: "10px", marginTop: "10px" }}>
-            <ol>Creating states</ol>
-            <ol>Updating states on click of a button</ol>
+            <ol>- Fetching external data through helper functions.</ol>
+            <ol>- Accessing third party using api keys found in .env</ol>
+            <ol>- Handling onSubmit form to start fetching.</ol>
+            <ol>- Passing data from Child to Parent</ol>
           </ul>
         </div>
       </section>
@@ -38,40 +46,7 @@ const ApiPage = () => {
       <section className="card-container px-5">
         {data &&
           data.results.map((item, index) => {
-            return (
-              <div className="card" key={index}>
-                <div className="card-image">
-                  <figure className="image is-4by3">
-                    <img src={item.urls.regular} alt="Placeholder image" />
-                  </figure>
-                </div>
-                <div className="card-content">
-                  <div className="media">
-                    <div className="media-left">
-                      <figure className="image is-48x48">
-                        <img
-                          src={item.user.profile_image.large}
-                          alt={item.alt_description}
-                        />
-                      </figure>
-                    </div>
-                    <div className="media-content">
-                      <p className="title is-4">{item.user.first_name}</p>
-                      <p className="subtitle is-6">{item.user.last_name}</p>
-                    </div>
-                  </div>
-
-                  <div className="content">
-                    {item.user.bio}
-                    <br />
-                    <hr />
-                    <a href="#">Instagram</a>
-                    <br />
-                    <time dateTime="2016-1-1">{item.created_at}</time>
-                  </div>
-                </div>
-              </div>
-            );
+            return <UnsplashCard data={item} key={index} />;
           })}
       </section>
     </main>

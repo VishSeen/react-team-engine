@@ -9,6 +9,7 @@ import { PAGES } from "./constants/constants";
 import "./styles/globals.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ApiPage from "./pages/api";
+import ErrorPage from "./pages/error";
 
 const rootElement = document.getElementById("root");
 const root = ReactDOM.createRoot(rootElement);
@@ -61,7 +62,7 @@ const App = () => {
     <div>
       <NavBar navItems={navItems} />
 
-      <RouterProvider router={router} />
+      <RouterProvider router={router} errorElement={<ErrorPage />} />
     </div>
   );
 };
