@@ -10,6 +10,7 @@ import "./styles/globals.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ApiPage from "./pages/api";
 import ErrorPage from "./pages/error";
+import FormPage from "./pages/forms";
 
 const rootElement = document.getElementById("root");
 const root = ReactDOM.createRoot(rootElement);
@@ -33,11 +34,16 @@ const App = () => {
     },
     {
       id: 4,
+      name: "Forms",
+      href: PAGES.FORMS,
+    },
+    {
+      id: 5,
       name: "Hooks",
       href: PAGES.HOOKS,
     },
     {
-      id: 5,
+      id: 6,
       name: "Legacy React",
       href: PAGES.LEGACY,
     },
@@ -55,6 +61,10 @@ const App = () => {
     {
       path: PAGES.API,
       element: <ApiPage />,
+    },
+    {
+      path: PAGES.FORMS,
+      element: <FormPage />,
     },
   ]);
 

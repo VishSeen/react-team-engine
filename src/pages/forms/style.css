@@ -1,0 +1,10 @@
+.actions {
+  display: flex;
+      flex-direction: column;
+  background-color: #f7f7f7;
+  width: 30%;
+}
+
+.content {
+  width: 65%;
+}
