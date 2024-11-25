@@ -69,9 +69,14 @@ const FormPage = () => {
           <ul style={{ marginLeft: "10px", marginTop: "10px" }}>
             <ol>- Adding Books</ol>
             <ol>- Deleting existing books</ol>
-            <ol>- Editing book titles.</ol>
+            <ol>- Editing book titles</ol>
             <ol>- Generating IDs</ol>
-            <ol>- Submitting form through enter key.</ol>
+            <ol>- Submitting form through enter key</ol>
+            <ol>- Making use of UseEffect Hooks</ol>
+            <ol>- Creating a dummy api server with rest client</ol>
+            <ol>
+              - get/post/delete/put methods created for CRUD through fake server
+            </ol>
           </ul>
         </div>
       </section>
