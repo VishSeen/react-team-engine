@@ -65,19 +65,33 @@ const FormPage = () => {
             Creating a book inventory where you can add books, delete and Update
             existing titles. Focusing mainly on form elements.
           </p>
-
-          <ul style={{ marginLeft: "10px", marginTop: "10px" }}>
-            <ol>- Adding Books</ol>
-            <ol>- Deleting existing books</ol>
-            <ol>- Editing book titles</ol>
-            <ol>- Generating IDs</ol>
-            <ol>- Submitting form through enter key</ol>
-            <ol>- Making use of UseEffect Hooks</ol>
-            <ol>- Creating a dummy api server with rest client</ol>
-            <ol>
-              - get/post/delete/put methods created for CRUD through fake server
-            </ol>
-          </ul>
+          <br />
+          <div>
+            <p>
+              <em>How to handle forms:</em>
+            </p>
+            <ul style={{ marginLeft: "10px" }}>
+              <ol>- Adding Books</ol>
+              <ol>- Deleting existing books</ol>
+              <ol>- Editing book titles</ol>
+              <ol>- Generating IDs</ol>
+              <ol>- Submitting form through enter key</ol>
+            </ul>
+          </div>
+          <br />
+          <div>
+            <p>
+              <em>Data persistance with API Requests:</em>
+            </p>
+            <ul>
+              <ol>- Making use of UseEffect Hooks</ol>
+              <ol>- Creating a dummy api server with rest client</ol>
+              <ol>
+                - get/post/delete/put methods created for CRUD through fake
+                server
+              </ol>
+            </ul>
+          </div>
         </div>
       </section>
 
