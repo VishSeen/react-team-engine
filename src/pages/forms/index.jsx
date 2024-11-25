@@ -1,34 +1,59 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BookCreate from "../../components/book-create";
 import BookList from "../../components/book-list";
+import axios from "axios";
 
 import "./style.css";
 
 const FormPage = () => {
   const [books, setBooks] = useState([]);
+  const URL = "http://localhost:3001/books";
+
+  useEffect(() => {
+    const getBooks = async () => {
+      const response = await axios.get(URL);
+      setBooks(response.data);
+    };
+    getBooks();
+  }, []);
 
   // creates a new book with the title mentionned
-  const createBook = (title) => {
-    let updatedBooks = [...books, { id: Math.random(), title: title }];
+  const createBook = async (title) => {
+    const response = await axios.post(URL, {
+      title,
+    });
+    let updatedBooks = [...books, response.data];
 
     setBooks(updatedBooks);
   };
 
   // updating the book title
-  const editBook = (id, newTitle) => {
-    console.log(books);
+  const editBook = async (id, newTitle) => {
+    if (id !== undefined) {
+      const response = await axios.put(`${URL}/${id}`, {
+        title: newTitle,
+      });
 
-    let updatedBooks = books.filter((item) => item.id !== id);
-    let edited = [...updatedBooks, { id: id, title: newTitle }];
+      const updatedBooks = books.map((book) => {
+        if (book.id === id) {
+          return { ...books, ...response.data };
+        }
+        return book;
+      });
 
-    setBooks(edited);
+      setBooks(updatedBooks);
+    }
   };
 
   // delete current book by ID
-  const deleteBook = (id) => {
-    let newBooks = books.filter((item) => item.id !== id);
+  const deleteBook = async (id) => {
+    await axios.delete(`${URL}/${id}`);
 
-    setBooks(newBooks);
+    const updatedBooks = books.filter((book) => {
+      return book.id !== id;
+    });
+
+    setBooks(updatedBooks);
   };
 
   return (

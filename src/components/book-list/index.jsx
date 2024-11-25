@@ -12,17 +12,18 @@ const BookList = ({ books, onDelete, onEdit }) => {
       </thead>
 
       <tbody>
-        {books.map((item, index) => {
-          return (
-            <Book
-              key={index}
-              id={item.id}
-              title={item.title}
-              onDelete={onDelete}
-              onEdit={onEdit}
-            />
-          );
-        })}
+        {books !== null &&
+          books.map((item) => {
+            return (
+              <Book
+                key={item.id}
+                id={item.id}
+                title={item.title}
+                onDelete={onDelete}
+                onEdit={onEdit}
+              />
+            );
+          })}
       </tbody>
     </table>
   );
