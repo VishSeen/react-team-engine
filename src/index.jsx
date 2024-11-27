@@ -11,6 +11,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ApiPage from "./pages/api";
 import ErrorPage from "./pages/error";
 import FormPage from "./pages/forms";
+import { Provider } from "./context/BookContext";
 
 const rootElement = document.getElementById("root");
 const root = ReactDOM.createRoot(rootElement);
@@ -69,11 +70,11 @@ const App = () => {
   ]);
 
   return (
-    <div>
+    <Provider value={{ id: 1, title: "Test" }}>
       <NavBar navItems={navItems} />
 
       <RouterProvider router={router} errorElement={<ErrorPage />} />
-    </div>
+    </Provider>
   );
 };
 

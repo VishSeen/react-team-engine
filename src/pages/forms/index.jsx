@@ -1,60 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import BookCreate from "../../components/book-create";
 import BookList from "../../components/book-list";
 import axios from "axios";
 
 import "./style.css";
+import BooksContext from "../../context/BookContext";
 
 const FormPage = () => {
-  const [books, setBooks] = useState([]);
-  const URL = "http://localhost:3001/books";
-
-  useEffect(() => {
-    const getBooks = async () => {
-      const response = await axios.get(URL);
-      setBooks(response.data);
-    };
-    getBooks();
-  }, []);
-
-  // creates a new book with the title mentionned
-  const createBook = async (title) => {
-    const response = await axios.post(URL, {
-      title,
-    });
-    let updatedBooks = [...books, response.data];
-
-    setBooks(updatedBooks);
-  };
-
-  // updating the book title
-  const editBook = async (id, newTitle) => {
-    if (id !== undefined) {
-      const response = await axios.put(`${URL}/${id}`, {
-        title: newTitle,
-      });
-
-      const updatedBooks = books.map((book) => {
-        if (book.id === id) {
-          return { ...books, ...response.data };
-        }
-        return book;
-      });
-
-      setBooks(updatedBooks);
-    }
-  };
-
-  // delete current book by ID
-  const deleteBook = async (id) => {
-    await axios.delete(`${URL}/${id}`);
-
-    const updatedBooks = books.filter((book) => {
-      return book.id !== id;
-    });
-
-    setBooks(updatedBooks);
-  };
+  const { books } = useContext(BooksContext);
 
   return (
     <main className="form-page">
@@ -92,17 +45,33 @@ const FormPage = () => {
               </ol>
             </ul>
           </div>
+
+          <div>
+            <p>
+              <em>Communicating using Context System:</em>
+            </p>
+            <ul>
+              <ol>- creating an external context</ol>
+              <ol>- logics for the books context</ol>
+              <ol>
+                - refactor current code to remove passing function as props
+                (prop drilling)
+              </ol>
+              <ol>- application state vs component state in react</ol>
+              <ol>- using props and context together</ol>
+            </ul>
+          </div>
         </div>
       </section>
 
       <section style={{ display: "flex", height: "600px" }}>
         <div className="actions px-5 pt-5">
-          <BookCreate onCreate={createBook} />
+          <BookCreate />
         </div>
 
         <div className="content px-5 pt-5">
           {books.length !== 0 ? (
-            <BookList books={books} onDelete={deleteBook} onEdit={editBook} />
+            <BookList books={books} />
           ) : (
             <div>
               <h1>Empty shelf</h1>

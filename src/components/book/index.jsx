@@ -1,20 +1,20 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import BooksContext from "../../context/BookContext";
 
-const Book = ({ id, title, onDelete, onEdit }) => {
+const Book = ({ book }) => {
   const [isEditMode, setIsEditMode] = useState(false);
-  const [editedTitle, setEditedTitle] = useState(title);
+  const [editedTitle, setEditedTitle] = useState(book.title);
+  const { updateBookById, deleteBook } = useContext(BooksContext);
 
   const handleDelete = () => {
-    onDelete(id);
-    console.log("Deleting: ", id);
+    deleteBook(book.id);
   };
 
   const handleEdit = () => {
     setIsEditMode(!isEditMode);
 
     if (isEditMode && editedTitle) {
-      onEdit(id, editedTitle);
-      console.log("Edited: ", editedTitle);
+      updateBookById(book.id, editedTitle);
     }
   };
 
@@ -24,17 +24,17 @@ const Book = ({ id, title, onDelete, onEdit }) => {
 
   return (
     <tr className="book">
-      <th>{id}</th>
+      <th>{book.id}</th>
       <td>
         {!isEditMode ? (
-          <p>{title}</p>
+          <p>{book.title}</p>
         ) : (
           <p className="control" style={{ width: "100%" }}>
             <input
               style={{ width: "100%" }}
               className="input"
               type="text"
-              placeholder={title}
+              placeholder={book.title}
               onChange={handleChange}
             />
           </p>

@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import Book from "../book/index";
+import BooksContext from "../../context/BookContext";
 
-const BookList = ({ books, onDelete, onEdit }) => {
+const BookList = () => {
+  const { books } = useContext(BooksContext);
+
   return (
     <table className="book-list table">
       <thead>
@@ -13,16 +17,8 @@ const BookList = ({ books, onDelete, onEdit }) => {
 
       <tbody>
         {books !== null &&
-          books.map((item) => {
-            return (
-              <Book
-                key={item.id}
-                id={item.id}
-                title={item.title}
-                onDelete={onDelete}
-                onEdit={onEdit}
-              />
-            );
+          books.map((book) => {
+            return <Book key={book.id} book={book} />;
           })}
       </tbody>
     </table>

@@ -1,14 +1,16 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./style.css";
+import BooksContext from "../../context/BookContext";
 
-const BookCreate = ({ onCreate }) => {
+const BookCreate = () => {
   const [title, setTitle] = useState();
+  const { createBook } = useContext(BooksContext);
 
   // creating a new book by calling parent function onCreate
   const handleCreate = (event) => {
     event.preventDefault();
     if (title !== "") {
-      onCreate(title);
+      createBook(title);
       setTitle("");
     }
   };
