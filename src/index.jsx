@@ -12,6 +12,7 @@ import ApiPage from "./pages/api";
 import ErrorPage from "./pages/error";
 import FormPage from "./pages/forms";
 import { Provider } from "./context/BookContext";
+import HooksPage from "./pages/hooks";
 
 const rootElement = document.getElementById("root");
 const root = ReactDOM.createRoot(rootElement);
@@ -66,6 +67,10 @@ const App = () => {
     {
       path: PAGES.FORMS,
       element: <FormPage />,
+    },
+    {
+      path: PAGES.HOOKS,
+      element: <HooksPage />,
     },
   ]);
 
